@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:spring-form="http://www.springframework.org/tags/form"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<!-- sayfa açılmadan önce açılacak olan -->
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{socialMediaController.list()}" />
+</f:metadata>
+
+
+<h:head>
+	<!-- Primefaces icons -->
+	<link rel="stylesheet" href="primefaces/primeicons.css" />
+	<ui:insert>
+		<ui:include src="/WEB-INF/admin-templates/admin-head-script.xhtml" />
+	</ui:insert>
+</h:head>
+<h:body
+	class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+	<p:growl id="growl" showDetail="true" sticky="false" />
+	<div class="wrapper">
+		<ui:insert>
+			<ui:include src="/WEB-INF/admin-templates/admin-header.xhtml" />
+		</ui:insert>
+
+		<ui:insert>
+			<ui:include src="/WEB-INF/admin-templates/admin-left-menu.xhtml" />
+		</ui:insert>
+
+		<div class="content-wrapper">
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0">Dashboard v2</h1>
+							<p:commandButton icon="pi pi-save"
+								oncomplete="PF('create').show()" value="Yeni Kayıt Oluştur"
+								title="Yeni Kayıt Oluştur">
+							</p:commandButton>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+								<li class="breadcrumb-item active">SocialMedia</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Main content -->
+			<section class="content">
+			<div class="container-fluid" id="delete">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header"></div>
+							<div class="card-body">
+								<table id="example1"
+									class="table table-bordered table-striped table-hover">
+									<!-- Baslangic -->
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>ADI</th>
+											<th>ICON</th>
+											<th>URL</th>
+											<th>TARİH</th>
+											<th>GÜNCEL</th>
+											<th>DETAY</th>
+											<th>SİL</th>
+										</tr>
+									</thead>
+									<tbody>
+										<p:repeat value="#{socialMediaController.list()}"
+											var="socialList">
+											<tr>
+												<td>#{socialList.socialId}</td>
+												<td>#{socialList.socialName}</td>
+												<td>#{socialList.socialIcon}</td>
+													<td>#{socialList.socialUrl}</td>
+													<td>#{socialList.date}</td>
+
+												<h:form>
+													<td width="5%"><p:commandButton
+															styleClass="btn btn-primary btn-sm "
+															style="background: #3333ff !important;"
+															actionListener="#{socialMediaController.updateForm(socialList)}"
+															value="Güncel" update=":dialog-form:update"
+															title="Güncelle" icon="pi pi-refresh"
+															oncomplete="PF('guncelleme').show()">
+
+															<f:setPropertyActionListener value="#{socialList}"
+																target="#{socialMediaController.socialMediaDto}" />
+														</p:commandButton></td>
+
+
+													<td width="5%"><p:commandButton value="Listele"
+															styleClass="btn btn-primary btn-sm "
+															style="background: #669999 !important;"
+															update=":list-form:carDetail" icon="pi pi-chart-line"
+															title="Listele" oncomplete="PF('listeleme').show()">
+															<f:setPropertyActionListener value="#{socialList}"
+																target="#{socialMediaController.socialMediaDto}" />
+														</p:commandButton></td>
+
+													<td width="5%"><p:commandButton
+															styleClass="btn btn-primary btn-sm"
+															style="background: red !important;"
+															icon="pi pi-exclamation-triangle" title="Sil"
+															action="#{socialMediaController.delete(socialList.socialId)}"
+															value="Sil">
+															<p:confirm header="Silme işlemi"
+																message="Silmek istediğinizden emin misiniz ?"
+																icon="pi pi-exclamation-triangle" />
+														</p:commandButton> <p:confirmDialog global="true" showEffect="fade"
+															hideEffect="fade">
+															<p:commandButton value="Evet" type="button"
+																styleClass="ui-confirmdialog-yes btn btn-primary btn-sm"
+																icon="pi pi-check" />
+															<p:commandButton value="Hayır" type="button"
+																styleClass="ui-confirmdialog-no btn btn-primary btn-sm"
+																icon="pi pi-times" />
+														</p:confirmDialog></td>
+
+												</h:form>
+											</tr>
+										</p:repeat>
+									</tbody>
+									<tfoot>
+										<thead>
+											<tr>
+												<th>ID</th>
+											<th>ADI</th>
+											<th>ICON</th>
+											<th>URL</th>
+											<th>TARİH</th>
+											<th>GÜNCEL</th>
+											<th>DETAY</th>
+											<th>SİL</th>
+											</tr>
+										</thead>
+									</tfoot>
+									<!-- Bitis-->
+								</table>
+
+
+								<!-- DİALOG ALANI -->
+								<!-- LİSTELEME  Dialog -->
+								<h:form id="list-form">
+									<p:dialog modal="true" height="600" width="600"
+										widgetVar="listeleme">
+										<p:outputPanel id="carDetail">
+											<p:panel id="listele" header="Listele">
+
+												<div class="form-group">
+													<label for="exampleInputEmail1">ID</label>
+													<h:outputText
+														value="#{socialMediaController.socialMediaDto.socialId}"
+														class="form-control" style="text-align:center;" />
+												</div>
+
+												<p:column class="form-group">
+													<label for="exampleInputEmail1">Başlık</label>
+													<h:outputText
+														value="#{socialMediaController.socialMediaDto.socialName}"
+														style="text-align:center;" class="form-control" />
+												</p:column>
+												<p:column class="form-group">
+													<label for="exampleInputEmail1">İçerik</label>
+													<h:outputText
+														value="#{socialMediaController.socialMediaDto.socialIcon}"
+														style="text-align:center;" class="form-control" />
+												</p:column>
+												<p:column class="form-group">
+													<label for="exampleInputEmail1">İçerik</label>
+													<h:outputText
+														value="#{socialMediaController.socialMediaDto.socialUrl}"
+														style="text-align:center;" class="form-control" />
+												</p:column>
+												<p:column class="form-group">
+													<label for="exampleInputEmail1">İçerik</label>
+													<h:outputText
+														value="#{socialMediaController.socialMediaDto.date}"
+														style="text-align:center;" class="form-control" />
+												</p:column>
+											</p:panel>
+										</p:outputPanel>
+									</p:dialog>
+								</h:form>
+
+
+
+
+								<!--  GÜNCELLEME DİALOG -->
+								<h:form id="dialog-form" enctype="multipart/form-data">
+									<p:dialog modal="true" height="600" width="600"
+										widgetVar="guncelleme">
+										<p:outputPanel id="update" style="text-align:center;">
+											<p:panel id="panel" header="Güncelleme">
+
+												<div class="form-group">
+													<h:inputHidden
+														value="#{socialMediaController.socialMediaDto.socialId}" />
+													<p>id: #{socialMediaController.socialMediaDto.socialId}</p>
+												</div>
+												<div class="form-group">
+													<p:inputText
+														value="#{socialMediaController.socialMediaDto.socialName}"
+														pt:placeholder="sosyal medya adı giriniz."
+														styleClass="form-control" required="true"
+														name="update-name" id="update-name" />
+													<p>
+														<p:message for="update-name" style="color:red;" />
+													</p>
+												</div>
+
+												<div class="form-group">
+													<p:inputText
+														value="#{socialMediaController.socialMediaDto.socialIcon}"
+														pt:placeholder="icon giriniz"
+														styleClass="form-control" required="true"
+														name="update-surname" id="update-surname" />
+													<p>
+														<p:message for="update-surname" style="color:red;" />
+													</p>
+												</div>
+												
+												
+													<div class="form-group">
+													<p:inputText
+														value="#{socialMediaController.socialMediaDto.socialUrl}"
+														pt:placeholder="url giriniz"
+														styleClass="form-control" required="true"
+														name="update-url" id="update-url" />
+													<p>
+														<p:message for="update-url" style="color:red;" />
+													</p>
+												</div>
+
+												<div class="form-group">
+													<h:commandButton styleClass="btn btn-danger btn-block"
+														actionListener="#{socialMediaController.update(socialMediaController.socialMediaDto)}"
+														value="Güncelle" icon="pi pi-save">
+													</h:commandButton>
+												</div>
+											</p:panel>
+										</p:outputPanel>
+									</p:dialog>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+		</div>
+
+		<!-- EKLEME DİALOG -->
+		<p:dialog header="Effects" modal="true" height="600" width="600"
+			widgetVar="create" showEffect="explode" hideEffect="explode"
+			resizable="false">
+			<h:form id="form-add" enctype="multipart/form-data">
+				<p:panel id="panel" header="Ekleme">
+
+					<div class="form-group">
+						<p:inputText
+							value="#{socialMediaController.socialMediaDto.socialName}"
+							pt:placeholder="icon adı giriniz"
+							styleClass="form-control" required="true"
+							requiredMessage="icon eklemediniz." name="name-add"
+							id="name-add" />
+						<p>
+							<p:message for="name-add" style="color:red;" />
+						</p>
+					</div>
+
+					<div class="form-group">
+						<p:inputText
+							value="#{socialMediaController.socialMediaDto.socialIcon}"
+							pt:placeholder="icon giriniz"
+							styleClass="form-control" required="true"
+							requiredMessage="icon adı eklemediniz." name="icon-add"
+							id="icon-add" />
+						<p> 
+							<p:message for="icon-add" style="color:red;" />
+						</p>
+					</div>
+					
+					<div class="form-group">
+						<p:inputText
+							value="#{socialMediaController.socialMediaDto.socialUrl}"
+							pt:placeholder="url giriniz"
+							styleClass="form-control" required="true"
+							requiredMessage="içerik eklemediniz." name="url-add"
+							id="url-add" />
+						<p> 
+							<p:message for="url-add" style="color:red;" />
+						</p>
+					</div>
+
+					<div class="form-group">
+						<h:commandButton styleClass="btn btn-primary btn-block"
+							actionListener="#{socialMediaController.create(socialMediaController.socialMediaDto)}"
+							value="Kaydet" icon="pi pi-save" id="dialog-create">
+						</h:commandButton>
+						<button type="reset" class="btn btn-danger  btn-block ">Temizle</button>
+					</div>
+				</p:panel>
+			</h:form>
+		</p:dialog>
+
+
+		<ui:insert>
+			<ui:include src="/WEB-INF/admin-templates/admin-footer.xhtml" />
+		</ui:insert>
+
+		<script>
+$(function(){
+	$("#form-add").attr("autocomplete", "off");
+})
+</script>
+	</div>
+</h:body>
+</h:html>

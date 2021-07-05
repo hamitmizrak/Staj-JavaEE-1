@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<!-- start -->
+
+<h1>Session Page sayfasına hoşgeldiniz.</h1>
+	<h:outputText value="#{sessionContextTutorials.sessionInPage}" /> <br/><br/> <hr/>
+	
+	
+	<h:form>
+	
+	<h:commandButton action="#{sessionContextTutorials.sessionLogout}" rendered="#{sessionContextTutorials.sessionInPage !=null}" value="Oturumu kapat"/>
+	</h:form>
+
+	<!-- finish -->
+</h:body>
+</h:html>

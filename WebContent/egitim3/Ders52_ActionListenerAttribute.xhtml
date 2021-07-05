@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous"></link>
+<h:head>
+
+	<h:outputStylesheet name="css/style.css" />
+	<h:outputScript name="js/common.js" />
+
+</h:head>
+<h:body class="container mt-5">
+	<!-- start -->
+<!-- actionListener f:Attributes -->
+	<h:form id="ListenerID">
+		<h:commandButton id="ListenerCommandID" styleClass="btn btn-primary"
+			actionListener="#{actionListenerParam.ActionListenerAttributesMethod}" value="f:attributes gönder">
+			<f:attribute name="adi" value="Hamit" />
+		</h:commandButton>
+	</h:form>
+	<hr />
+	
+	<!-- action request-->
+	<h:form id="ActionRequestID">
+		<h:commandButton id="ActionRequestCommandID" styleClass="btn btn-danger"
+			action="#{actionListenerParam.ActionRequestGetParameterMethod}" value="f:param request gönder">
+			<f:param name="soyadi" value="Mızrak" />
+		</h:commandButton>
+	</h:form>
+	<hr />
+	
+		<!-- action Map -->
+	<h:form id="ActionMapID">
+		<h:commandButton id="ActionMapCommandID" styleClass="btn btn-warning"
+			action="#{actionListenerParam.ActionMapParameterMethod}" value="f:param Map gönder">
+			<f:param name="memleket" value="Malatya" />
+		</h:commandButton>
+	</h:form>
+
+	<!-- finish -->
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</h:body>
+</h:html>

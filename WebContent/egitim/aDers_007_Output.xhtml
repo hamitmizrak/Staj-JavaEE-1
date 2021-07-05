@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<!-- Unutmaaaaaaa Eğer resources eklemezsen Css ve Js yapısında görmez -->
+	<h:outputStylesheet name="css/font-awesome.min.css"></h:outputStylesheet>
+	<h:outputScript name="js/deneme.js"></h:outputScript>
+
+</h:head>
+<h:body styleClass="container mt-5 mb-5">
+	<!--  Start Codes -->
+
+	<h:outputText value="#{outputEcodation.name}" />
+	<h:outputText value="#{outputEcodation.surname}" />
+
+	<hr />
+	<hr />
+	<h:outputText
+		value="#{outputEcodation.name} + #{outputEcodation.surname}  "></h:outputText>
+	<hr />
+	<hr />
+	<h:outputLabel value="adı: " for="adiSoyadi" />
+	<br />
+	<h:outputText id="adiSoyadi"
+		value="#{outputEcodation.name} + #{outputEcodation.surname}  "></h:outputText>
+	<hr />
+	<hr />
+	<h:outputLink value="../index.html"
+		style="box-shadow:1px 1px 1px 1px rgba(0,0,0,.8); padding:.8rem;"
+		styleClass="btn btn-outline-danger" disabled="true" rendered="true"
+		onclick="label()">Anasayfaya Git</h:outputLink>
+	<hr />
+	<hr />
+	<p class="text-danger">outputFormat</p>
+	<h:outputFormat value="{1} / {0}">
+		<f:param value="#{outputEcodation.name}"  name="#{outputEcodation.name}"></f:param>
+		<f:param value="#{outputEcodation.surname}" name="#{outputEcodation.surname}"></f:param>
+	</h:outputFormat>
+	
+	
+
+
+	<!-- Finish Codes -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<script>
+function label(){
+
+	alert("Deneme");
+}
+		</script>
+
+</h:body>
+</h:html>

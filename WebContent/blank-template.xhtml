@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:spring-form="http://www.springframework.org/tags/form">
+
+<h:head>
+	<ui:insert>
+		<ui:include src="/WEB-INF/blog-templates/blog-header-script.xhtml" />
+	</ui:insert>
+</h:head>
+<h:body class="stretched search-overlay">
+	<div id="fb-root"></div>
+	<div id="wrapper">
+		<ui:insert>
+			<ui:include src="/WEB-INF/blog-templates/blog-header-logo.xhtml" />
+		</ui:insert>
+		<section id="content">
+		<div class="content-wrap pt-5" style="overflow: visible;">
+			<div class="container">
+				<div class="row border-between">
+                <div class="col-lg-12"> </div>
+
+				</div>
+				<!-- Hero Area End -->
+
+			</div>
+		</div>
+		</section>
+		<!-- footer xhtml -->
+		<ui:insert>
+			<ui:include src="/WEB-INF/blog-templates/blog-footer.xhtml" />
+		</ui:insert>
+	</div>
+	<!-- footer Script  xhtml-->
+	<ui:insert>
+		<ui:include src="/WEB-INF/blog-templates/blog-footer-script.xhtml" />
+	</ui:insert>
+
+</h:body>
+</h:html>

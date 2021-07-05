@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	
+	>
+
+<h:head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<!-- Unutmaaaaaaa Eğer resources eklemezsen Css ve Js yapısında görmez -->
+
+
+</h:head>
+<h:body styleClass="container mt-5 mb-5">
+	<!--  Start Codes -->
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <h1 class="text-center">Register</h1>
+            <form method="post" action="index.html">
+
+                <div class="form-group">
+                    <label for="name" class="text-muted">Adınız:</label>
+                    <h:inputText value="#{registerDto.registerName}"  class="form-control" id="name" a:placeholder="Adınızı giriniz ..." /> 
+                </div>
+                
+                 <div class="form-group">
+                    <label for="surname" class="text-muted">Soyadınız:</label>
+                    <h:inputText value="#{registerDto.registerSurname}" class="form-control" id="surname" a:placeholder="Soyadınızı giriniz ..." /> 
+                </div>
+                  
+                 <div class="form-group">
+                    <label for="password" class="text-muted">Şifreniz:</label>
+                    <h:inputSecret value="#{registerDto.registerPassword}"   class="form-control" id="password" a:placeholder="Şifrenizi giriniz ..." /> 
+                </div>
+               
+                 <div class="form-group">
+                    <label for="email" class="text-muted">Email:</label>
+                    <h:inputText value="#{registerDto.registerEmail}"  class="form-control" id="email" a:placeholder="email giriniz ..." /> 
+                </div>
+                
+        
+			        <input type="reset" class="btn btn-warning "   value="Temizle" />
+			        <input type="submit"  class="btn btn-primary "   value="Gönder" />
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+	<!-- Finish Codes -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</h:body>
+</h:html>

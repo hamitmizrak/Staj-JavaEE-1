@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<!-- Unutmaaaaaaa Eğer resources eklemezsen Css ve Js yapısında görmez -->
+	<h:outputStylesheet name="css/font-awesome.min.css"></h:outputStylesheet>
+	<h:outputScript name="js/deneme.js"></h:outputScript>
+
+</h:head>
+<h:body styleClass="container mt-5 mb-5">
+	<!--  Start Codes -->
+
+	<h:form title="form alanı">
+		<h:messages styleClass="text-danger" showDetail="true" />
+		<div class="form-group"></div>
+		<h:outputLabel for="adi" value="Label #{input.id}" />
+		<h:inputHidden id="id" value="#{input.id}" readonly="true" />
+		<br />
+
+		<h:outputLabel for="adi" value="adınız" />
+		<h:inputText styleClass="form-control" id="adi" value="#{input.name}"
+			required="true" requiredMessage="Ad alanını girmediniz" validatorMessage="ingilizce" />
+		<h:message for="adi" style="color:red" />
+		<br />
+
+
+		<h:outputLabel for="soyadi" value="soyadınız" />
+		<h:inputText styleClass="form-control" id="soyadi"
+			value="#{input.surname}" required="true"
+			requiredMessage="Soyad alanını girmediniz" />
+		<h:message for="soyadi" style="color:red" />
+
+		<br />
+
+		<h:outputLabel for="sifre" value="sifre" />
+		<h:inputSecret styleClass="form-control" id="sifre"
+			value="#{input.password}" required="true"
+			requiredMessage="sifre alanını girmediniz" />
+		<h:message for="sifre" style="color:red" />
+
+		<h:inputTextarea styleClass="form-control" id="form"
+			value="#{input.form}" required="true"
+			requiredMessage="form alanını girmediniz" />
+		<h:message for="form" style="color:red" />
+
+		<br />
+
+		<h:commandButton type="reset" id="reset" readonly="true" disabled="true" title="üzerine geldiğinde" value="Reset"
+			styleClass="btn btn-danger" style="margin-right:2%" />
+
+		<h:commandButton type="button" style="margin-right:2%"  value="button"/>
+
+		<h:commandButton id="submit" styleClass="btn btn-primary"
+			action="#{input.adiSoyadiMethod()}" value="Gönder" />
+		<!-- 		<h:commandButton  styleClass="btn btn-primary" actionListener   ="#{input.adiSoyadiMethod()}" value="Gönder" /> -->
+		<!--         <h:commandLink  styleClass="btn btn-primary" action="#{input.adiSoyadiMethod()}" value="Gönder" />  -->
+		<!--         <h:button value=""  >Button</h:button> -->
+		<!--         <h:link>link</h:link> -->
+
+		<!--         <a href="index.html">Ana sayfa</a> -->
+
+	</h:form>
+	<script>
+$(function(){
+	$("#submit").css("color","blue");
+});
+	</script>
+
+	<h:outputText
+		value="#{input.name} **** #{input.surname} ** #{input.password} " />
+	<!-- <h:outputText rendered="#{input.name!=null}" value="#{input.name} **** #{input.surname} " /> -->
+
+	<!-- Finish Codes -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</h:body>
+</h:html>

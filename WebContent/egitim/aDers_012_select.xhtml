@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<!-- Unutmaaaaaaa Eğer resources eklemezsen Css ve Js yapısında görmez -->
+	<h:outputStylesheet name="css/font-awesome.min.css"></h:outputStylesheet>
+	<h:outputScript name="js/deneme.js"></h:outputScript>
+
+</h:head>
+<h:body styleClass="container mt-5 mb-5">
+	<!--  Start Codes -->
+
+	<h:form>
+		<h:panelGrid columns="3">
+			<!-- <h:selectBooleanCheckbox value="#{true}" /> Java -->
+			<h:selectBooleanCheckbox value="#{select.checkBool}" /> JSP
+          <h:commandButton action="#{select.selectMethod()}"
+				value="Gönder" />
+		</h:panelGrid>
+		<h:outputText value="#{select.checkBool}" />
+	</h:form>
+	<hr />
+	<hr />
+
+	<h:form>
+		<h:selectOneRadio value="#{select.oneRadio}">
+			<f:selectItem itemValue="0" itemLabel="Spring framework" />
+			<f:selectItem itemValue="1" itemLabel="Spring MVC" />
+			<f:selectItem itemValue="2" itemLabel="Spring Data" />
+		</h:selectOneRadio>
+		<h:commandButton action="#{select.selectMethod()}" value="Gönder" />
+		<h:outputText value="#{select.oneRadio}" />
+	</h:form>
+	<hr />
+	<hr />
+
+	<h:form>
+		<h:selectOneListbox value="#{select.secilenId}">
+			<f:selectItems value="#{select.computerList}" var="Hamit44"
+				itemLabel="#{Hamit44.computerName}" itemValue="#{Hamit44.id}" />
+		</h:selectOneListbox>
+		<h:commandButton action="#{select.selectMethod()}" value="Gönder" />
+		<h:outputText value="#{select.secilenId}" />
+	</h:form>
+	<hr />
+	<hr />
+	<hr />
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- 	selectMany -->
+	<h:form>
+		<h:selectManyCheckbox value="#{select.selectManyField}">
+			<f:selectItem itemLabel="Servlet" itemValue="Servlet-1" />
+			<f:selectItem itemLabel="JSP" itemValue="JSP-1" />
+			<f:selectItem itemLabel="JSF" itemValue="JSF-1" />
+			<f:selectItem itemLabel="Spring Framework"
+				itemValue="Spring Framework-1" />
+			<f:selectItem itemLabel="Spring Data" itemValue="Spring Data-1" />
+			<f:selectItem itemLabel="Spring Mvc" itemValue="Spring Mvc-1" />
+			<f:selectItem itemLabel="Spring Boot" itemValue="Spring Boot-1" />
+		</h:selectManyCheckbox>
+		<h:commandButton action="#{select.selectManyCheckBoxMethod()}"
+			value="Gönder" />
+	</h:form>
+
+<ui:repeat var="takmaAd" value="#{select.selectManyField}">
+#{takmaAd.toUpperCase()}
+</ui:repeat>
+
+
+
+
+
+
+
+
+	<!-- Finish Codes -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</h:body>
+</h:html>

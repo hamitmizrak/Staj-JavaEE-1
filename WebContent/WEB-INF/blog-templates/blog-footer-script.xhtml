@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:spring-form="http://www.springframework.org/tags/form"
+      >
+<h:body> 
+<!-- Start -->
+<ui:composition>
+	<div id="gotoTop" class="icon-angle-up rounded-circle" style="left: 30px; right: auto;"></div>
+	<script src="js/jquery.js"></script>
+	<script src="js/plugins.min.js"></script>
+	<script src="js/functions.js"></script>
+	<!-- ADD-ONS JS FILES -->
+	<script>
+		// Current Date
+		var weekday = ["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"],
+			month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			a = new Date();
+
+		jQuery('.divider-text').html( weekday[a.getDay()] + ', ' + month[a.getMonth()] + ' ' + a.getDate() );
+
+		jQuery('.dark-mode').on( 'click', function() {
+		    jQuery("body").toggleClass('dark');
+		    SEMICOLON.header.logo();
+		    return false;
+		});
+	</script>
+</ui:composition>
+</h:body> 
+</h:html>

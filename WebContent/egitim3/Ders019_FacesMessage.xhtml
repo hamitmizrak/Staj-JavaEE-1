@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous"></link>
+<h:head>
+
+	<h:outputStylesheet name="css/style.css" />
+	<h:outputScript name="js/common.js" />
+
+</h:head>
+<h:body class="container mt-5">
+	<!-- start -->
+	<!-- student44.adi -->
+
+
+<h:form id="sumForm">
+
+<h:outputLabel for="number1"> 1.sayı </h:outputLabel>
+<h:inputText value="#{sumClass.number1}" id="number1"  required="true" requiredMessage="1.sayıyı girmediniz." styleClass="form-control"/>
+
+<h:outputLabel for="number2"> 1.sayı </h:outputLabel>
+<h:inputText value="#{sumClass.number2}" id="number2" required="true" requiredMessage="2.sayıyı girmediniz." styleClass="form-control"/>
+
+<h:commandButton action="#{sumClass.sumMethod}" value="Gönder" onclick="dikkat()" />
+</h:form>
+
+<h:messages errorStyle="display:none;" infoStyle="display:none;" styleClass="btn btn-danger"/>
+
+
+	<!-- finish -->
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<script>
+			function dikkat(){
+			alert("Toplam alanına git");
+			console.log("Dikkat console");
+				$("#pID").html("<b>Evet</b>");
+			}
+
+		</script>
+</h:body>
+</h:html>

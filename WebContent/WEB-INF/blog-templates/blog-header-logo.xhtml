@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:spring-form="http://www.springframework.org/tags/form">
+<h:body >
+<ui:composition>
+		<header id="header" class="header-size-custom"
+			data-sticky-shrink="false">
+		<div id="header-wrap">
+			<div class="container">
+				<div class="header-row justify-content-lg-between">
+					<!-- Logo -->
+					<div id="logo"
+						class="mx-lg-auto col-auto flex-column order-lg-2 px-0">
+						<a href="blog.xhtml" class="standard-logo"
+							data-dark-logo="blog/images/logo-dark.png"
+							data-mobile-logo="blog/images/mobile-logo.png"><img
+							src="blog/images/logo.png" alt="Ecodation" /></a> <a
+							href="blog.xhtml" class="retina-logo"
+							data-dark-logo="blog/images/logo-dark@2x.png"
+							data-mobile-logo="blog/images/mobile-logo@2x.png"><img
+							src="blog/images/logo@2x.png" alt="Canvas Logo" /></a> <span
+							class="divider divider-center date-today"><span
+							class="divider-text"></span></span>
+					</div>
+					<!-- #logo end -->
+					<div class="col-auto col-lg-3 order-lg-1 d-none d-md-flex px-0">
+						<div class="social-icons">
+							<p:repeat var="socialList" value="#{socialMediaController.list()}">
+							 <a href=" #{socialList.socialUrl}"
+								class="social-icon si-rounded si-dark si-mini si-instagram"
+								target="_blank"> <i class="#{socialList.socialIcon}"></i> <i
+								class="#{socialList.socialIcon}"></i>
+							</a>
+							</p:repeat>
+							
+							
+						</div>
+					</div>
+					<div
+						class="header-misc col-auto col-lg-3 justify-content-lg-end ml-0 ml-sm-3 px-0">
+						<div class="dropdown dropdown-langs">
+							<button class="btn dropdown-toggle px-1" type="button"
+								id="dropdownMenuButton" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<img src="seo/images/flags/eng.png" alt="French" />
+							</button>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="dropdownMenuButton">
+								<a href="#" class="dropdown-item"><img
+									src="seo/images/flags/fre.png" alt="Lang" /> French</a> <a
+									href="#" class="dropdown-item"><img
+									src="seo/images/flags/ara.png" alt="Lang" /> Arabic</a> <a
+									href="#" class="dropdown-item"><img
+									src="seo/images/flags/tha.png" alt="Lang" /> Thailand</a> <a
+									href="#" class="dropdown-item disabled" tabindex="-1"
+									aria-disabled="true"><img src="seo/images/flags/eng.png"
+									alt="Lang" /> English</a>
+							</div>
+						</div>
+						<div>
+							<a class="menu-link" href="#modal-login" data-lightbox="inline"><div>
+									<i class="fas fa-user-shield"></i>Login
+								</div></a>
+						</div>
+						<div id="top-search" class="header-misc-icon">
+							<a href="#" id="top-search-trigger"><i
+								class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+						</div>
+						<div class="dark-mode header-misc-icon d-none d-md-block">
+							<a href="#"><i class="icon-dark"></i></a>
+						</div>
+					</div>
+
+					<div id="primary-menu-trigger">
+						<svg class="svg-trigger" viewBox="0 0 100 100"> <path
+							d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path>
+						<path d="m 30,50 h 40"></path> <path
+							d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+					</div>
+
+				</div>
+			</div>
+
+
+			<!-- Modal -->
+			<div class="modal1 mfp-hide" id="modal-login">
+				<div class="block mx-auto"
+					style="background-color: #FFF; max-width: 600px;">
+					<section id="content">
+					<div class="content-wrap">
+						<div class="container clearfix">
+							<div class="accordion accordion-lg mx-auto mb-0 clearfix"
+								style="max-width: 550px;">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-lock3"></i> <i
+											class="accordion-open icon-unlock"></i>
+									</div>
+									<div class="accordion-title">Üye Girişi</div>
+								</div>
+								<div class="accordion-content clearfix">
+									<form id="login-form" name="login-form" class="row mb-0"
+										action="#" method="post">
+										<div class="col-12 form-group">
+											<label for="login-form-username">Kullanıcı adı veya
+												Email adres:</label> <input type="text" id="login-form-username"
+												name="login-form-username" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="login-form-password">Şifre:</label> <input
+												type="password" id="login-form-password"
+												name="login-form-password" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<input class="btn btn-danger col-md-4" value="Temizle" /> <input
+												class="btn btn-primary col-md-4 " value="Giriş Yap" /> <a
+												href="#" class="text-primary col-md-3">Şifremi unuttum?</a>
+										</div>
+									</form>
+									<div class="line line-sm"></div>
+									<a href="#"
+										class="button button-rounded btn-block font-weight-normal center text-capitalize si-facebook si-colored mx-0">Facebook
+										ile Giriş</a> <a href="#"
+										class="button button-rounded btn-block font-weight-normal center text-capitalize si-gplus si-colored m-0">Google
+										ile Giriş</a>
+
+								</div>
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-user4"></i> <i
+											class="accordion-open icon-ok-sign"></i>
+									</div>
+									<div class="accordion-title">Kayıt Ol</div>
+								</div>
+								<div class="accordion-content clearfix">
+									<form id="register-form" name="register-form" class="row mb-0"
+										action="#" method="post">
+										<div class="col-12 form-group">
+											<label for="register-form-name">Name:</label> <input
+												type="text" id="register-form-name"
+												name="register-form-name" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="register-form-email">Email Address:</label> <input
+												type="text" id="register-form-email"
+												name="register-form-email" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="register-form-username">Choose a
+												Username:</label> <input type="text" id="register-form-username"
+												name="register-form-username" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="register-form-phone">Phone:</label> <input
+												type="text" id="register-form-phone"
+												name="register-form-phone" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="register-form-password">Choose Password:</label>
+											<input type="password" id="register-form-password"
+												name="register-form-password" value="" class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<label for="register-form-repassword">Re-enter
+												Password:</label> <input type="password"
+												id="register-form-repassword"
+												name="register-form-repassword" value=""
+												class="form-control" />
+										</div>
+										<div class="col-12 form-group">
+											<input type="reset" class="btn btn-danger col-md-5"
+												value="Temizle" /> <input type="submit"
+												class="btn btn-primary col-md-5 " value="Üye Ol" />
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					</section>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="header-row justify-content-lg-center header-border">
+					<nav class="primary-menu with-arrows">
+					<ul class="menu-container justify-content-between">
+						<li class="menu-item current"><a class="menu-link"
+							href="blog.xhtml"><div>Anasayfa</div></a></li>
+						<li class="menu-item"><a class="menu-link"
+							href="blog-categories.xhtml"><div>World</div></a></li>
+						<li class="menu-item"><a class="menu-link"
+							href="blog-categories.xhtml"><div>Blog</div></a></li>
+						<li class="menu-item"><a class="menu-link"
+							href="blog-categories.xhtml"><div>Hakkımızda</div></a></li>
+						<li class="menu-item"><a class="menu-link"
+							href="blog-categories.xhtml"><div>S.S.S</div></a></li>
+						<li class="menu-item"><a class="menu-link"
+							href="sss.xhtml"><div>İletişim</div></a></li>
+					</ul>
+					</nav>
+					<form class="top-search-form" action="search.html" method="get">
+						<input type="text" name="q" class="form-control" value=""
+							placeholder="Type &amp; Hit Enter.." autocomplete="off" />
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="header-wrap-clone"></div>
+		</header>
+</ui:composition>
+</h:body>
+</h:html>

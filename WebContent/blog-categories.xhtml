@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:spring-form="http://www.springframework.org/tags/form">
+<h:head>
+	<ui:insert>
+		<ui:include src="/WEB-INF/blog-templates/blog-header-script.xhtml" />
+	</ui:insert>
+</h:head>
+
+<h:body class="stretched search-overlay">
+	<div id="fb-root"></div>
+	<div id="wrapper">
+
+		<ui:insert>
+			<ui:include src="/WEB-INF/blog-templates/blog-header-logo.xhtml" />
+		</ui:insert>
+
+		<section id="page-title" class="page-title-center">
+
+		<div class="container">
+			<h1>Lifestyle</h1>
+			<span>Phosfluorescently target clicks-and-mortar growth
+				strategies for timely infrastructures. Monotonectally embrace
+				high-quality applications.</span>
+		</div>
+
+		</section>
+
+		<section id="content">
+		<div class="content-wrap pt-0 pt-sm-6">
+			<div class="container">
+				<div class="row gutter-50">
+					<div class="col-lg-3 cat-widgets position-sticky h-100"
+						style="top: 234px;">
+						<div class="widget widget-search">
+							<form class="input-group">
+								<input class="form-control" type="search" placeholder="Search"
+									aria-label="Search" />
+								<div class="input-group-append">
+									<button class="btn btn-outline-secondary icon-line-search"
+										type="button"></button>
+								</div>
+							</form>
+						</div>
+
+						<div class="widget widget-nav mt-md-5">
+							<ul class="nav">
+								<li class="nav-item active"><a class="nav-link" href="#">All Categories</a></li>
+<h:form>
+								<p:repeat var="blogList" value="#{blogController.list()}">
+									<li class="nav-item"><h:commandLink
+											style="margin-left:5%;" action="#{blogController.blogCategories(blogList.categories)}"
+											value="#{blogList.categories}" /></li>
+								</p:repeat>
+								</h:form>
+
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-lg-9 mt-5 mt-lg-0">
+						<div class="d-flex">
+							<div class="flex-grow-1">
+								<h3>All Lifestyle Posts</h3>
+							</div>
+							<div>
+								<!-- Example single danger button -->
+								<div class="btn-group">
+									<button type="button"
+										class="btn btn-sm btn-outline-secondary dropdown-toggle"
+										data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">Most Popular</button>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#">Latest Posts</a> <a
+											class="dropdown-item" href="#">Most Comments</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row col-mb-50 posts-md">
+						
+							<p:repeat var="blogListRight" value="#{blogController.list()}">
+								<div class="col-md-4">
+									<article class="entry">
+									<div class="entry-image mb-3">
+										<a href="demo-blog-single.html"><img
+											src="blog/images/categories/1.jpg" alt="Image 3" /></a>
+									</div>
+									<div class="entry-title title-sm">
+										<div class="entry-categories">
+											<a href="demo-blog-categories.html">#{blogListRight.categories}</a>
+										</div>
+										<h3>
+											<a href="demo-blog-single.html"
+												class="color-underline stretched-link">#{blogListRight.header}</a>
+										</h3>
+									</div>
+									<div class="entry-meta">
+										<ul>
+											<li>March 21, 2020</li>
+										</ul>
+									</div>
+									<div class="entry-content mt-3">
+										<p>#{blogListRight.content}</p>
+										<a href="demo-blog-single.html" class="more-link">Detay</a>
+									</div>
+									</article>
+								</div>
+							</p:repeat>
+
+						</div>
+
+					</div>
+				</div>
+				<div class="section section-colored rounded mb-0 px-4">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-5">
+							<h3 class="mb-4 mb-lg-0">Sign up for Updates &amp;
+								Newsletters.</h3>
+						</div>
+						<div class="col-lg-6">
+							<div class="widget subscribe-widget" data-loader="button">
+
+								<div class="widget-subscribe-form-result"></div>
+								<form id="widget-subscribe-form" action="include/subscribe.php"
+									method="post" class="mb-0 d-flex">
+									<input type="email" id="widget-subscribe-form-email"
+										name="widget-subscribe-form-email"
+										class="form-control form-control-lg not-dark required email"
+										placeholder="Your Email Address" />
+									<button
+										class="button button-large button-black button-dark font-weight-medium ls0 button-rounded m-0 ml-3"
+										type="submit">Subscribe Now</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+
+		<ui:insert>
+			<ui:include src="/WEB-INF/blog-templates/blog-footer.xhtml" />
+		</ui:insert>
+	</div>
+	<!-- footer Script  xhtml-->
+	<ui:insert>
+		<ui:include src="/WEB-INF/blog-templates/blog-footer-script.xhtml" />
+	</ui:insert>
+
+</h:body>
+</h:html>
