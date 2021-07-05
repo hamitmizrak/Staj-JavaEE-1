@@ -1,0 +1,2 @@
+CREATE SCHEMA `staj_javaee1` DEFAULT CHARACTER SET utf8 ;
+use staj_javaee1;

@@ -13,7 +13,7 @@ public class SingletonDbConnection {
 	// Db connection
 	private String user = "root";
 	private String password = "root";
-	private String url = "jdbc:mysql://localhost:3306/blogdb?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false";
+	private String url = "jdbc:mysql://localhost:3306/staj_javaee1?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true&useSSL=false";
 
 	// database baglanma metodu
 	public Connection connectionMethod() {
