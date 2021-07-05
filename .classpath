@@ -29,5 +29,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.48-bin.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-8.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/start-1.0.9.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail-1.4.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
